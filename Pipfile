@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+fastapi = "0.95.1"
+uvicorn = "0.22.0"
+pipenv = "2023.4.29"
+requests = "2.30.0"
+pymongo = "3.11.1"
+motor = "3.1.2"
+confluent-kafka = "2.1.1"
+
+[dev-packages]
+pre-commit = "3.3.1"
+mypy = ""
+types-requests = ""
+
+[requires]
+python_version = "3.9"
