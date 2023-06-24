@@ -13,7 +13,7 @@ from app.errors import ElementNotFoundError, DBConnectionError
 
 import uvicorn
 from fastapi.responses import JSONResponse
-from fastapi import FastAPI, HTTPException, status
+from fastapi import FastAPI, HTTPException, status, Response
 
 conf = Config()
 app = FastAPI()
@@ -107,11 +107,8 @@ async def modify_client(client_id: str, client: ClientUpdate):
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Could not update the client"
         )
-    return JSONResponse(
-        status_code=status.HTTP_201_CREATED,
-        content=client
-    )
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
 
 
 if __name__ == "__main__":
-    uvicorn.run("main:app", port=5000, log_level="info")
+    uvicorn.run("main:app", port=5050, log_level="info")

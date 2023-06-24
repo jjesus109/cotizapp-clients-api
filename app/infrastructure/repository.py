@@ -84,7 +84,7 @@ class Repository(RepositoryInterface):
     ) -> ClientDict:
         query = {"_id": client_id}
         values = {
-            "$set": client.dict(exclude_unset=True)
+            "$set": client.dict(exclude_unset=True, exclude_none=True)
         }
         try:
             await self.nosql_conn[self.conf.clients_collec].update_one(

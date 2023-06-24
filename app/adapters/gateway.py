@@ -32,7 +32,7 @@ class Gateway(GatewayInterface):
             await self.repository.notify(client, service_type)
             response = jsonable_encoder(client)
         else:
-            response = await self.repository.create_service(client)
+            response = await self.repository.create_client(client)
         return response
 
     async def update_client(self, client_id: str, client: Any) -> Any:
